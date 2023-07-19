@@ -19,7 +19,10 @@ def is_rotation(s1, s2):
     >>> is_rotation("waterbottle", "waterbottl")
     False
     """
-    #quick check
+    #quick check against s2 containing s1 exactly plus xtra chars
     if len(s1) != len(s2): return False
 
+    # logic: checking if xy = yx
+    # note: yxyx makes "xy" in middle
     return s1 in (s2+s2)
+
