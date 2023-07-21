@@ -1,23 +1,6 @@
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def append(self, value):
-        new_node = Node(value)
-        if not self.head:
-            self.head = new_node
-        else:
-            current = self.head
-            while current.next:
-                current = current.next
-            current.next = new_node
-
+from node_linkedlist import LinkedList
 def print_linked_list(linked_list):
+    """Given a linked list, it will print the value"""
     current = linked_list.head
     while current:
         print(current.value, end=" -> ")
@@ -25,6 +8,7 @@ def print_linked_list(linked_list):
     print("None")
 
 def create_linked_list_with_duplicates():
+    """Initialie linkedlist with two values that are duplicates"""
     linked_list = LinkedList()
     values = [1, 2, 3, 4, 2]  # Ensure a duplicate value (2) is present
     for value in values:
@@ -32,6 +16,8 @@ def create_linked_list_with_duplicates():
     return linked_list
 
 def remove_dupes (linked_list):
+    """Given a LinkedList, it will remove any nodee that has a value
+    of a previous node (a duplicate) and return a linkedlist"""
     node = linked_list.head
     unique_values = set([node.value])
     while (node.next is not None):
